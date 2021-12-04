@@ -1,138 +1,148 @@
 .attribution {
   font-size: 11px;
   text-align:left;
+  display: flex;
+  justify-content: center;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
 }
-body {
+
+body{
   background-color: hsl(217, 54%, 11%);
-  font-family: "outfit", sans-serif;
-  font-size: 18px;
-  padding: 5rem 0rem 10rem 25rem;
+  font-family: outfit;  
 }
+
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 0.5fr 0.3fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 0.5fr;
   grid-auto-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "image image"
-    "text text"
-    "creator creator";
+    "image"
+    "text";
+  width: 20%;
   background-color: hsl(216, 50%, 16%);
-  width: fit-content;
-  /* margin-left: 0rem 2rem 0rem 0rem; */
-  padding: 2rem 2rem 0rem 2rem;
-  width: 40%;
-  border-radius: 10px;
-  box-shadow: hsl(216, 50%, 16%) 0px 7px 29px 0px;
+  padding: 1rem;
+  border-radius: 20px;
+  margin-left: 38%;
 }
 
-.image {
-  grid-area: image;
-  display: flex;
-  justify-content: center;
+.image { 
+  grid-area: image; 
+  height: min-content;
 }
-.image img {
+.image img{
   width: 100%;
+  height: fit-content;
   border-radius: 10px;
 }
 
 .text {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "heading heading heading"
-    "description description description"
-    "value . time";
+    "heading"
+    "description"
+    "order"
+    "creator";
   grid-area: text;
-  font-size: 18px;
 }
 
-.heading {
-  grid-area: heading;
+.heading { 
+  grid-area: heading; 
   color: hsl(0, 0%, 100%);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .description {
+
+  justify-self: start;
   grid-area: description;
   color: hsl(215, 51%, 70%);
-  font-size: 16px;
 }
 
-.value {
-  grid-area: value;
-  color: hsl(178, 100%, 50%);
+.order {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "price time";
+  grid-area: order;
+}
+
+.price {
+
+  justify-self: start;
+  grid-area: price;
   display: flex;
   align-items: center;
-  font-weight: 600;
+  height: min-content;
+  color: hsl(178, 100%, 50%);
+  font-size: 14px;
 }
-.value img {
-  margin: 0rem 0.5rem 0rem 0rem;
+.price img{
+  margin-right: 1rem;
 }
 
 .time {
+  justify-self: end;
   grid-area: time;
-  color: hsl(215, 51%, 70%);
   display: flex;
   align-items: center;
-  font-weight: 400;
+  height: min-content;
+  color: hsl(215, 51%, 70%);
+  font-size: 14px;
 }
 
-.time img {
-  margin: 0rem 0.5rem 0rem 0rem;
+.time img{
+  margin-right: 1rem;
 }
 
 .creator {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "creator_image creator_text";
+  justify-self: start;
   grid-area: creator;
   color: hsl(215, 51%, 70%);
-  border-top: hsl(215, 32%, 27%) 1px solid;
-  display: flex;
-  align-items: flex-end;
-}
-.creator img {
-  width: 35%;
-}
-.image-border {
-  border-radius: 2rem;
-  border-color: hsl(0, 0%, 100%);
+  border-top: 1px solid hsl(215, 32%, 27%);
+  padding-top: 1rem;
   margin-top: 1rem;
 }
-.name {
-  color: hsl(0, 0%, 100%);
+
+.creator_image {
+  justify-self: start;
+  grid-area: creator_image;
+  width: fit-content;
+
 }
-.creator p {
-  position: absolute;
-  left: 32rem;
-  font-size: 18px;
+.creator_image img{
+  width: 50%;
+  border: 1px solid hsl(0, 0%, 100%);
+  border-radius: 50%;
 }
 
-@media only screen and (max-width: 400px) {
-  body {
-    margin: 6rem 2rem 2rem 2rem;
-    padding: 0rem 0rem 0rem 0rem;
-  }
-  .container {
-    padding: 2rem 2rem 0rem 2rem;
-    width: fit-content;
-  }
-  .creator p{
-    left: 7.5rem;
-  }
-  .time{
-      width: max-content;
-  }
-  .value{
-      width: max-content;
-  }
-  .creator{
-      align-items: flex-end;
-  }
+.creator_text { 
+  grid-area: creator_text; 
+  display: flex;
+  align-items: center;
+  width: max-content;
+  font-size: 14px;
+}
+
+
+.name{
+  color: hsl(0, 0%, 100%);
 }
